@@ -11,27 +11,27 @@ export default function ServicesGrid() {
     {
       title: t.services.medical.title,
       description: t.services.medical.description,
-      image: "/images/medicalassistance-temp.png",
+      image: "/images/medicalassistance.png",
     },
     {
       title: t.services.travel.title,
       description: t.services.travel.description,
-      image: "/images/travel-temp.jpg",
+      image: "/images/travel.jpg",
     },
     {
       title: t.services.language.title,
       description: t.services.language.description,
-      image: "/images/language-temp.png",
+      image: "/images/language.png",
     },
     {
       title: t.services.administration.title,
       description: t.services.administration.description,
-      image: "/images/administration-temp.jpeg",
+      image: "/images/administration.jpeg",
     },
     {
       title: t.services.local.title,
       description: t.services.local.description,
-      image: "/images/localsupport-temp.png",
+      image: "/images/localsupport.png",
     },
   ];
 

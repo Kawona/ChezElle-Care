@@ -18,7 +18,7 @@ export default function Footer() {
           <div className="md:col-span-2">
             <div className="flex items-center gap-3 mb-6">
               <Image
-                src="/images/whitelogo-temp.jpg"
+                src="/images/whitelogo.jpg"
                 alt="ChezElle Care Logo"
                 width={80}
                 height={80}

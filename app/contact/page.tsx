@@ -37,7 +37,7 @@ export default function ContactPage() {
         className="relative h-[55vh] min-h-[700px] w-full overflow-hidden"
       >
         <Image
-          src="/images/contact-temp.png"
+          src="/images/contact.png"
           alt={t.contact.heroAlt}
           fill
           priority

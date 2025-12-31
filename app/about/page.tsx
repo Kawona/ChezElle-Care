@@ -47,7 +47,7 @@ export default function AboutPage() {
         "
       >
         <Image
-          src="/images/about-temp.png"
+          src="/images/about.png"
           alt={t.about.heroAlt}
           fill
           priority
