@@ -56,7 +56,7 @@ export default function Header() {
               alt="ChezElle Care Logo"
               fill
               priority
-              className=""
+              className="object-contain"
             />
           </motion.div>
 

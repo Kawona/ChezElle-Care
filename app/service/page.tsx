@@ -1,12 +1,6 @@
 "use client";
 
-import {
-  Globe,
-  Plane,
-  Languages,
-  BriefcaseMedical,
-  MapPin,
-} from "lucide-react";
+import { Globe, Plane, Languages, BriefcaseMedical, MapPin, } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
@@ -51,7 +45,7 @@ export default function ServicesPage() {
   return (
     <div className="flex flex-col gap-16 sm:gap-20">
 
-      {/* ================= HERO ================= */}
+      {/* HERO */}
       <motion.section
         initial={{ opacity: 0, y: 24 }}
         animate={{ opacity: 1, y: 0 }}
@@ -73,7 +67,7 @@ export default function ServicesPage() {
         />
       </motion.section>
 
-      {/* ================= SERVICES LIST ================= */}
+      {/* SERVICES LIST */}
       <section className="py-10 sm:py-20">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-3">

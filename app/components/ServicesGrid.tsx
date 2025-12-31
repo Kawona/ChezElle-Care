@@ -11,12 +11,12 @@ export default function ServicesGrid() {
     {
       title: t.services.medical.title,
       description: t.services.medical.description,
-      image: "/images/MedicalAssistance.png",
+      image: "/images/medicalassistance.png",
     },
     {
       title: t.services.travel.title,
       description: t.services.travel.description,
-      image: "/images/Travel.jpg",
+      image: "/images/travel.jpg",
     },
     {
       title: t.services.language.title,
@@ -31,7 +31,7 @@ export default function ServicesGrid() {
     {
       title: t.services.local.title,
       description: t.services.local.description,
-      image: "/images/localSupport.png",
+      image: "/images/localsupport.png",
     },
   ];
 
