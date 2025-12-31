@@ -21,7 +21,7 @@ export default function Home() {
         "
       >
         <Image
-          src="/images/homepage.png"
+          src="/images/homepage-temp.png"
           alt="Healthcare and travel support"
           fill
           priority
@@ -120,7 +120,7 @@ export default function Home() {
         {/* FINAL CTA */}
         <section className="relative py-16">
           <Image
-            src="/images/Traveling.jpg"
+            src="/images/traveling-temp.jpg"
             alt="Support and guidance"
             fill
             className="object-cover"

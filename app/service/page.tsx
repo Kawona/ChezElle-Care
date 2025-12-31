@@ -58,7 +58,7 @@ export default function ServicesPage() {
         "
       >
         <Image
-          src="/images/family.png"
+          src="/images/family-temp.png"
           alt={t.about.heroAlt}
           fill
           priority
