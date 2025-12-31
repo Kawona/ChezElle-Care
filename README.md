@@ -1,36 +1,121 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+## ChezElle Care
 
-## Getting Started
+Trusted Care. Wherever life takes you.
 
-First, run the development server:
+ChezElle Care is a healthcare support and medical coordination platform designed to simplify access to medical care, travel logistics, and healthcare administration across borders. The platform provides a clear, multilingual, and user-focused experience for individuals and organizations navigating complex care journeys.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Overview
+ChezElle Care operates at the intersection of:
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- Healthcare coordination
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- International travel support
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- Medical administration
 
-## Learn More
+- Multilingual and cross-border assistance
 
-To learn more about Next.js, take a look at the following resources:
+The website serves as both an informational platform and an entry point for users to request professional support.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Key Features
+- Multilingual Support
+English (EN), French (FR), and Portuguese (PT) with a global language switcher.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- Global Translation Architecture
+Centralized translation schema powering navigation, pages, and UI components.
 
-## Deploy on Vercel
+- Responsive & Accessible Design
+Optimized for desktop, tablet, and mobile with keyboard and touch accessibility.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- Animated UI with Framer Motion
+Subtle motion for page transitions, cards, and navigation interactions.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Service-Based Navigation
+Clear service cards that guide users to detailed service pages.
+
+- Request Support Workflow
+Dedicated request-support flow for users seeking assistance.
+
+- SEO & Performance Focused
+Built with Next.js App Router best practices.
+
+## Tech Stack
+- Framework: Next.js (App Router)
+
+- Language: TypeScript
+
+- Styling: Tailwind CSS
+
+- Animations: Framer Motion
+
+- Icons: Lucide React
+
+- Forms: Formspree
+
+- State Management: React Context (Language Context)
+
+- Images: Next/Image optimization
+
+## Internationalization (i18n)
+ChezElle Care uses a custom translation system built on top of React Context.
+
+Supported Languages
+
+- English (EN)
+
+- French (FR)
+
+- Portuguese (PT)
+
+How it works
+
+- All translations live in lib/translations.ts
+
+- LanguageContext controls the active language
+
+- useTranslations() provides typed access to translations
+
+- Language preference is persisted via localStorage
+
+## Design Principles
+- Clarity over complexity
+
+- Professional, calm visual tone
+
+- Strong visual affordances for navigation
+
+- Consistent spacing, typography, and color usage
+
+- Accessible interactions across devices
+
+## Future Enhancements
+- CMS integration for services and content
+
+- SEO metadata per language
+
+- Analytics and conversion tracking
+
+- Admin dashboard for service requests
+
+- Dark mode (optional)
+
+## Contribution Guidelines
+This project follows a clean, structured, and scalable code style.
+
+When contributing:
+
+Use TypeScript strictly
+
+Keep UI components reusable
+
+Centralize all text in translations
+
+Avoid hardcoded strings in UI components
+
+Maintain accessibility standards
+
+## 📄 License
+
+This project is proprietary and maintained for ChezElle Care.
+All rights reserved
+

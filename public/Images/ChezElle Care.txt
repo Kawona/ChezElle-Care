@@ -1,0 +1,189 @@
+ChezElle Care
+
+You’ll learn a lot by combining React + TypeScript + Tailwind while also handling i18n (internationalization). I’ll give you:
+
+Project description
+
+Learning objectives
+
+Requirements (technical & content)
+
+Best practices
+
+Implementation guide (step by step)
+
+Expected outcome
+
+Extra suggestions (pages/features you might add)
+
+1. Project Description
+
+This project is a corporate website for a company that provides international medical assistance, concierge services, translation, private administration for healthcare providers, and local guidance.
+The website will present the company’s services, values, and contact channels, while also supporting multilingual translation (English, French, Portuguese) through a language toggle.
+
+The theme will be white and green (green = life, health, growth).
+The website will be responsive and easy to navigate, built with React, TypeScript, and TailwindCSS.
+
+
+2. Learning Objectives
+
+By completing this project, you will:
+
+Practice React + TypeScript for building modular, type-safe UI components.
+
+Learn how to use TailwindCSS for styling and responsive design.
+
+Implement i18n (internationalization) with libraries like react-i18next.
+
+Learn routing in React with react-router-dom.
+
+Build a contact form (with basic validation and email handling simulation).
+
+Practice organizing a multi-page project structure.
+
+Learn best practices for project documentation and code maintainability.
+
+3. Requirements
+Functional Requirements
+
+Pages: Home, About Us, Services, Contact Us
+
+Services Section:
+
+International medical assistance & tourism
+
+Concierge (shuttle & accommodation)
+
+Translations (English, French, Portuguese)
+
+Private administration for healthcare providers
+
+Local guidance
+
+Language toggle (EN / FR / PT).
+
+Contact form (Name, Email, Message).
+
+Responsive layout (mobile, tablet, desktop).
+
+Technical Requirements
+
+React + TypeScript for app structure.
+
+TailwindCSS for styling.
+
+react-router-dom for navigation.
+
+react-i18next (or similar) for translations.
+
+Git & GitHub for version control.
+
+
+
+4. Best Practices
+
+Component reusability: split UI into components (Navbar, Footer, ServiceCard, LanguageToggle, etc.).
+
+Clean folder structure: components/, pages/, assets/, i18n/.
+
+Type safety: define interfaces for props.
+
+Responsive design: test across devices.
+
+Accessibility: semantic HTML, alt text for images, contrast-friendly colors.
+
+
+5. Implementation Guide
+Step 1: Project Setup
+npx create-react-app medical-company --template typescript
+cd medical-company
+npm install tailwindcss react-router-dom react-i18next i18next
+npx tailwindcss init -p
+
+Commit often: push changes to GitHub with meaningful commit messages.
+
+Step 2: Project Structure
+/src
+  /assets
+  /components
+    Navbar.tsx
+    Footer.tsx
+    ServiceCard.tsx
+    LanguageToggle.tsx
+  /pages
+    Home.tsx
+    About.tsx
+    Services.tsx
+    Contact.tsx
+  /i18n
+    en.json
+    fr.json
+    pt.json
+  App.tsx
+  index.tsx
+
+Step 3: Routing
+
+Use react-router-dom for navigation (Home, About, Services, Contact).
+
+
+Step 4: Layout & Styling
+
+Navbar: Logo, Links, Language Toggle
+
+Hero section: slogan + image
+
+Services grid: ServiceCard components
+
+Contact form: form inputs styled with Tailwind
+
+Step 5: Language Support
+
+Add i18n.js setup with react-i18next.
+
+Example en.json:
+
+{
+  "home": {
+    "title": "Welcome to Our Company",
+    "subtitle": "We provide international medical assistance and support."
+  }
+}
+
+Add fr.json and pt.json.
+
+Use useTranslation() hook in components.
+
+Step 6: Contact Form
+
+Inputs: Name, Email, Message.
+
+Validation (simple required fields).
+
+For now: log data in console or display success message.
+
+Step 7: Deployment
+
+Deploy to Vercel or Netlify for free hosting.
+
+
+6. Expected Outcome
+
+At the end, you’ll have a professional, responsive, multilingual company website with:
+✅ Home, About, Services, Contact pages
+✅ Clean UI with Tailwind styling
+✅ Language toggle (English, French, Portuguese)
+✅ Contact form
+✅ Responsive and accessible design
+✅ Hosted live version you can share in your portfolio
+
+
+7. Extra Suggestions
+
+Add Testimonials page: showcase client stories.
+
+FAQ page: answer common questions.
+
+Blog/News section: updates about healthcare & tourism.
+
+Admin dashboard (later): manage translations & inquiries.
