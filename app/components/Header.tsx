@@ -52,7 +52,7 @@ export default function Header() {
             className="relative aspect-square"
           >
             <Image
-              src="/images/whiteLogo.jpg"
+              src="/images/whitelogo.jpg"
               alt="ChezElle Care Logo"
               fill
               priority

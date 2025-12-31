@@ -21,7 +21,7 @@ export default function Home() {
         "
       >
         <Image
-          src="/images/HomePage.png"
+          src="/images/homepage.png"
           alt="Healthcare and travel support"
           fill
           priority
