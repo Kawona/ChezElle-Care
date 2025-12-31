@@ -13,16 +13,21 @@ export default function Header() {
   const t = useTranslations();
   const [open, setOpen] = useState(false);
 
-  /* SCROLL ANIMATION */
   const { scrollY } = useScroll();
 
-  // Header height animation
-  const headerHeight = useTransform(scrollY, [0, 80], [76, 64]);
+  // Disable scroll animation when menu is open
+  const headerHeight = useTransform(
+    scrollY,
+    [0, 80],
+    open ? [76, 76] : [76, 64]
+  );
 
-  // Logo size animation
-  const logoSize = useTransform(scrollY, [0, 80], [64, 52]);
+  const logoSize = useTransform(
+    scrollY,
+    [0, 80],
+    open ? [64, 64] : [64, 52]
+  );
 
-  // Shadow intensity
   const boxShadow = useTransform(
     scrollY,
     [0, 80],
@@ -33,125 +38,108 @@ export default function Header() {
   );
 
   return (
-    <motion.header
-      style={{ height: headerHeight, boxShadow }}
-      className="
-        sticky top-0 z-50
-        bg-white/70 backdrop-blur
-        border-b border-gray-200
-        flex items-center
-      "
-    >
-      <div className="max-w-7xl mx-auto w-full px-6 flex items-center justify-between">
+    <>
+      {/* ================= HEADER ================= */}
+      <motion.header
+        style={{ height: headerHeight, boxShadow }}
+        className="
+          sticky top-0 z-50
+          bg-white/80 backdrop-blur
+          border-b border-gray-200
+          flex items-center
+        "
+      >
+        <div className="max-w-7xl mx-auto w-full px-6 flex items-center justify-between">
+          {/* BRAND */}
+          <Link href="/" className="flex items-center gap-3">
+            <motion.div
+              style={{ height: logoSize }}
+              className="relative aspect-square"
+            >
+              <Image
+                src="/images/whitelogo.jpg"
+                alt="ChezElle Care Logo"
+                fill
+                priority
+                className="object-contain"
+              />
+            </motion.div>
 
-        {/* BRAND */}
-        <Link href="/" className="flex items-center gap-3">
-          {/* Logo Container (flexible, safe) */}
-          <motion.div
-            style={{ height: logoSize }}
-            className="relative aspect-square"
-          >
-            <Image
-              src="/images/whitelogo.jpg"
-              alt="ChezElle Care Logo"
-              fill
-              priority
-              className="object-contain"
-            />
-          </motion.div>
-
-          <span className="text-xl font-semibold text-brand-green whitespace-nowrap">
-            ChezElle Care
-          </span>
-        </Link>
-
-        {/* DESKTOP NAV */}
-        <nav className="hidden md:flex items-center gap-8 text-sm font-medium text-gray-700">
-          <Link href="/" className="hover:text-brand-green transition">
-            {t.nav.home}
+            <span className="text-xl font-semibold text-brand-green whitespace-nowrap">
+              ChezElle Care
+            </span>
           </Link>
-          <Link href="/service" className="hover:text-brand-green transition">
-            {t.nav.services}
-          </Link>
-          <Link href="/about" className="hover:text-brand-green transition">
-            {t.nav.about}
-          </Link>
-          <Link href="/contact" className="hover:text-brand-green transition">
-            {t.nav.contact}
-          </Link>
-        </nav>
 
-        {/* DESKTOP ACTIONS */}
-        <div className="hidden md:flex items-center gap-4">
+          {/* DESKTOP NAV */}
+          <nav className="hidden md:flex items-center gap-8 text-sm font-medium text-gray-700">
+            <Link href="/">{t.nav.home}</Link>
+            <Link href="/service">{t.nav.services}</Link>
+            <Link href="/about">{t.nav.about}</Link>
+            <Link href="/contact">{t.nav.contact}</Link>
+          </nav>
 
-          {/* Language Toggle */}
-          <div className="flex items-center gap-1 rounded-xl border border-gray-300 p-1 text-sm">
-            {(["EN", "FR", "PT"] as const).map((lang) => (
-              <button
-                key={lang}
-                onClick={() => setLanguage(lang)}
-                className={`px-3 py-1 rounded-lg transition-colors ${
-                  language === lang
-                    ? "bg-brand-green text-white"
-                    : "text-gray-600 hover:bg-gray-100"
-                }`}
-              >
-                {lang}
-              </button>
-            ))}
+          {/* DESKTOP ACTIONS */}
+          <div className="hidden md:flex items-center gap-4">
+            <div className="flex items-center gap-1 rounded-xl border border-gray-300 p-1 text-sm">
+              {(["EN", "FR", "PT"] as const).map((lang) => (
+                <button
+                  key={lang}
+                  onClick={() => setLanguage(lang)}
+                  className={`px-3 py-1 rounded-lg ${
+                    language === lang
+                      ? "bg-brand-green text-white"
+                      : "text-gray-600"
+                  }`}
+                >
+                  {lang}
+                </button>
+              ))}
+            </div>
+
+            <Link
+              href="/request-support"
+              className="rounded-xl bg-brand-green px-5 py-2.5 text-sm font-semibold text-white"
+            >
+              {t.requestSupport}
+            </Link>
           </div>
 
-          {/* CTA */}
-          <Link
-            href="/request-support"
-            className="
-              inline-flex items-center rounded-xl
-              bg-brand-green px-5 py-2.5
-              text-sm font-semibold text-white
-              transition hover:bg-brand-green/90
-            "
+          {/* MOBILE TOGGLE */}
+          <button
+            onClick={() => setOpen(true)}
+            className="md:hidden p-2 rounded-lg hover:bg-gray-100"
+            aria-label="Open menu"
           >
-            {t.requestSupport}
-          </Link>
+            <Menu size={22} />
+          </button>
         </div>
+      </motion.header>
 
-        {/* MOBILE TOGGLE */}
-        <button
-          onClick={() => setOpen(!open)}
-          className="md:hidden p-2 rounded-lg hover:bg-gray-100"
-          aria-label="Toggle menu"
-        >
-          {open ? <X size={22} /> : <Menu size={22} />}
-        </button>
-      </div>
-
-      {/* MOBILE MENU */}
+      {/* ================= MOBILE OVERLAY MENU ================= */}
       <AnimatePresence>
         {open && (
           <motion.div
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: "auto", opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.25, ease: "easeOut" }}
-            className="md:hidden overflow-hidden border-t border-gray-200 bg-white"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[60] bg-white"
           >
-            <div className="px-6 py-6 flex flex-col gap-5 text-sm text-gray-700">
+            <div className="flex items-center justify-between px-6 h-[76px] border-b">
+              <span className="text-lg font-semibold text-brand-green">
+                ChezElle Care
+              </span>
+              <button onClick={() => setOpen(false)}>
+                <X size={24} />
+              </button>
+            </div>
 
-              <Link href="/" onClick={() => setOpen(false)}>
-                {t.nav.home}
-              </Link>
-              <Link href="/service" onClick={() => setOpen(false)}>
-                {t.nav.services}
-              </Link>
-              <Link href="/about" onClick={() => setOpen(false)}>
-                {t.nav.about}
-              </Link>
-              <Link href="/contact" onClick={() => setOpen(false)}>
-                {t.nav.contact}
-              </Link>
+            <div className="px-6 py-8 flex flex-col gap-6 text-lg">
+              <Link href="/" onClick={() => setOpen(false)}>{t.nav.home}</Link>
+              <Link href="/service" onClick={() => setOpen(false)}>{t.nav.services}</Link>
+              <Link href="/about" onClick={() => setOpen(false)}>{t.nav.about}</Link>
+              <Link href="/contact" onClick={() => setOpen(false)}>{t.nav.contact}</Link>
 
-              {/* Mobile Language */}
-              <div className="flex gap-2 pt-4 border-t">
+              <div className="flex gap-2 pt-6 border-t">
                 {(["EN", "FR", "PT"] as const).map((lang) => (
                   <button
                     key={lang}
@@ -159,10 +147,10 @@ export default function Header() {
                       setLanguage(lang);
                       setOpen(false);
                     }}
-                    className={`px-3 py-2 text-xs rounded-lg transition ${
+                    className={`px-4 py-2 rounded-lg ${
                       language === lang
                         ? "bg-brand-green text-white"
-                        : "border text-gray-600"
+                        : "border"
                     }`}
                   >
                     {lang}
@@ -170,23 +158,17 @@ export default function Header() {
                 ))}
               </div>
 
-              {/* Mobile CTA */}
               <Link
                 href="/request-support"
                 onClick={() => setOpen(false)}
-                className="
-                  mt-2 inline-flex justify-center rounded-xl
-                  bg-brand-green px-5 py-3
-                  text-sm font-semibold text-white
-                "
+                className="mt-6 rounded-xl bg-brand-green py-3 text-center font-semibold text-white"
               >
                 {t.requestSupport}
               </Link>
-
             </div>
           </motion.div>
         )}
       </AnimatePresence>
-    </motion.header>
+    </>
   );
 }
